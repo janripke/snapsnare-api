@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-body">
+        <h4>Server information</h4>
+        <h6>snapsnare rest server, version {{code.version}}</h6>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">name</th>
+                    <th scope="col">value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for property in properties %}
+                <tr>
+                    <th scope="row">{{property.name}}</th>
+                    <td class="font-monospace"><small>{{property.value}}</small></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
