@@ -39,7 +39,7 @@ create the snapsnare-ds.json in ~/.snapsnare folder: paste the following into th
 
 ### install snapsnare-api
 ```shell
-pip3 install git+https://github.com/janripke/snapsnare-api.git@0.0.1#egg=snapsnare_api
+pip3 install git+https://github.com/janripke/snapsnare-api.git@0.0.2#egg=snapsnare_api
 ```
 
 ### run snapsnare-api

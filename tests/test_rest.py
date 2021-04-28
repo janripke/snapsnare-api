@@ -90,6 +90,32 @@ class TestRest(BaseTestCase):
         uuid = content.get('uuid')
         self.assertIsNotNone(content, 'no uuid')
 
+    def test_icecast_status(self):
+        access_token = self.auth()
+
+        url = f"{TestRest.ENDPOINT}/icecast/statuses/create"
+
+        proxies = TestRest.REQUESTS_PROXIES
+        request = BearerRequest(access_token, proxies=proxies)
+
+        source_ = {
+            'source': {
+                'listenurl': 'http://localhost:8000/stream'
+            }
+        }
+
+        response = request.post(url, source_)
+
+        status_code = response.status_code
+        expected = 200
+        self.assertEqual(expected, status_code, 'invalid status_code')
+
+        content = response.json()
+        self.assertIsNotNone(content, 'no content')
+
+        uuid = content.get('uuid')
+        self.assertIsNotNone(content, 'no uuid')
+
 
 if __name__ == '__main__':
     unittest.main()
